@@ -14,15 +14,18 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "tb_category")
-public class Category implements Serializable {
+@Table(name = "tb_product")
+public class Product implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String name;
+    private Long id;
+    private String name;
+    private String description;
+    private Double price;
+    private String imageUrl;
 
-    //private Set<Product> products = new HashSet<>();
+    //private Set<Category> categories = new HashSet<>();
 }
