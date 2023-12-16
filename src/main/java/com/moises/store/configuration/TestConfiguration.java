@@ -1,14 +1,8 @@
 package com.moises.store.configuration;
 
-import com.moises.store.entities.Category;
-import com.moises.store.entities.Order;
-import com.moises.store.entities.Product;
-import com.moises.store.entities.User;
+import com.moises.store.entities.*;
 import com.moises.store.entities.enums.OrderStatus;
-import com.moises.store.repositories.CategoryRepository;
-import com.moises.store.repositories.OrderRepository;
-import com.moises.store.repositories.ProductRepository;
-import com.moises.store.repositories.UserRepository;
+import com.moises.store.repositories.*;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -33,6 +27,9 @@ public class TestConfiguration implements CommandLineRunner {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private OrderItemRepository orderItemRepository;
 
     @Override
     @Transactional
@@ -67,5 +64,10 @@ public class TestConfiguration implements CommandLineRunner {
         p5.addCategory(cat3);
         productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
+        OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+        OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
+        OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
+        OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
+        orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
     }
 }

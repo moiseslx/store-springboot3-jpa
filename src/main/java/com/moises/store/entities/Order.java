@@ -10,6 +10,9 @@ import lombok.NoArgsConstructor;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,6 +36,9 @@ public class Order implements Serializable {
     @JoinColumn(name = "client_id")
     private User client;
 
+    @OneToMany(mappedBy = "id.order")
+    private List<OrderItem> items = new ArrayList<>();
+
     //CUSTOM CONSTRUCTOR
     public Order(Long id, Instant moment, User client, OrderStatus status) {
         this.id = id;
@@ -51,4 +57,5 @@ public class Order implements Serializable {
             this.orderStatus = orderStatus.getCode();
         }
     }
+
 }
