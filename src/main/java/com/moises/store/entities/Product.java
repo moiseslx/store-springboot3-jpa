@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,5 +27,23 @@ public class Product implements Serializable {
     private Double price;
     private String imageUrl;
 
-    //private Set<Category> categories = new HashSet<>();
+    @ManyToMany
+    @JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private List<Category> categories = new ArrayList<>();
+
+    // CUSTOM CONSTRUCTOR
+    public Product(Long id, String name, String description, Double price, String imageUrl) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imageUrl = imageUrl;
+    }
+
+    // Adds a category to the list of categories if it is not already present.
+    public void addCategory(Category category) {
+        if (!this.categories.contains(category)) {
+            this.categories.add(category);
+        }
+    }
 }
