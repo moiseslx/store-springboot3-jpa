@@ -12,7 +12,6 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -38,6 +37,9 @@ public class Order implements Serializable {
 
     @OneToMany(mappedBy = "id.order")
     private List<OrderItem> items = new ArrayList<>();
+
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    private Payment payment;
 
     //CUSTOM CONSTRUCTOR
     public Order(Long id, Instant moment, User client, OrderStatus status) {
