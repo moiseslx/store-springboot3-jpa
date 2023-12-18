@@ -5,6 +5,13 @@
 
 Este projeto consiste em um sistema de gerenciamento para uma loja, implementado usando web services com Spring Boot e JPA / Hibernate. O objetivo principal é fornecer endpoints RESTful para quatro entidades principais: Categoria (Category), Pedido (Order), Produto (Product) e Usuário (User).
 
+## Modelo de domínio
+<div align="center">
+
+![image](https://github.com/moiseslx/store-springboot3-jpa/assets/89827423/1dec22c3-125f-4c6f-9711-90778ed2e2c3)
+
+</div>
+
 ## Tecnologias Utilizadas
 
 - Spring Boot:
@@ -54,14 +61,6 @@ A seguir estão alguns exemplos de endpoints/APIs disponíveis para interagir co
 
 </div>
 
-## Modelo de domínio
-<div align="center">
+<hr>
 
-![image](https://github.com/moiseslx/store-springboot3-jpa/assets/89827423/1dec22c3-125f-4c6f-9711-90778ed2e2c3)
-
-</div>
-
-Este projeto foi construído com base nos conhecimentos adquiridos no curso ["Java COMPLETO 2023 Programação Orientada a Objetos +Projetos"](https://www.udemy.com/course/java-curso-completo/) ministrado pelo [Prof. Nelio Alves](https://www.linkedin.com/in/nelio-alves/).
-
-
-
+_Este projeto foi construído com base nos conhecimentos adquiridos no curso ["Java COMPLETO 2023 Programação Orientada a Objetos +Projetos"](https://www.udemy.com/course/java-curso-completo/) ministrado pelo [Prof. Nelio Alves](https://www.linkedin.com/in/nelio-alves/)._
